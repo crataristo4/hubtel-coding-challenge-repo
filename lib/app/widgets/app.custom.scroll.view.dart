@@ -24,6 +24,7 @@ class AppCustomScrollView extends StatefulWidget {
   final List<Widget>? actions;
   final String? appBarTitle; //used in case default appBar needs a title
   final Color? scaffoldColor;
+  final FloatingActionButtonLocation? floatingActionButtonLocation;
   const AppCustomScrollView(
       {Key? key,
       this.controller,
@@ -43,7 +44,8 @@ class AppCustomScrollView extends StatefulWidget {
       this.floatingAction,
       this.actions,
       this.appBarTitle,
-      this.scaffoldColor})
+      this.scaffoldColor,
+      this.floatingActionButtonLocation})
       : super(key: key);
 
   @override
@@ -60,6 +62,7 @@ class _AppCustomScrollViewState extends State<AppCustomScrollView> {
             backgroundColor: widget.scaffoldColor,
             bottomNavigationBar: widget.bottomNavigation,
             floatingActionButton: widget.floatingAction,
+            floatingActionButtonLocation: widget.floatingActionButtonLocation,
           )
         : customScrollView();
   }

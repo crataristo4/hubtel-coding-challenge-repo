@@ -1,19 +1,21 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hubtel_coding_challenge_repo/app/view/app/splash.dart';
 import 'package:hubtel_coding_challenge_repo/app/widgets/dismiss.keyboard.dart';
 import 'package:hubtel_coding_challenge_repo/generated/l10n.dart';
+import 'package:hubtel_coding_challenge_repo/l10n/L10n.dart';
 import 'package:hubtel_coding_challenge_repo/route/route.generator.dart';
 
-class ClientEntryPoint extends StatefulWidget {
-  const ClientEntryPoint({super.key});
+class EntryPoint extends StatefulWidget {
+  const EntryPoint({super.key});
 
   @override
-  State<ClientEntryPoint> createState() => _ClientEntryPointState();
+  State<EntryPoint> createState() => _EntryPointState();
 }
 
-class _ClientEntryPointState extends State<ClientEntryPoint> {
+class _EntryPointState extends State<EntryPoint> {
   @override
   Widget build(BuildContext context) {
     return ScreenUtilInit(
@@ -21,17 +23,22 @@ class _ClientEntryPointState extends State<ClientEntryPoint> {
       useInheritedMediaQuery: true,
       splitScreenMode: false,
       builder: (BuildContext context, Widget? child) {
-        return const DismissKeyboard(
+        return DismissKeyboard(
           child: MaterialApp(
-            localizationsDelegates: [
+            localizationsDelegates: const [
               AppLocalizationDelegate(),
+              GlobalMaterialLocalizations.delegate,
+              GlobalCupertinoLocalizations.delegate,
+              GlobalWidgetsLocalizations.delegate,
             ],
             title: 'Hubtel coding challenge',
+            locale: Locale('en'),
             themeMode: ThemeMode.system,
+            supportedLocales: L10n.all,
             initialRoute: SplashScreen.routeName,
             onGenerateRoute: RouteGenerator.generateRoute,
             debugShowCheckedModeBanner: false,
-            scrollBehavior: CupertinoScrollBehavior(),
+            scrollBehavior: const CupertinoScrollBehavior(),
           ),
         );
       },

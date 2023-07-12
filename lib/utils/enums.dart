@@ -3,14 +3,14 @@
 enum AnimateType { slideLeft, slideUp, slideDown, slideRight }
 
 enum TransactionStatus {
-  success,
-  failed,
+  Successful,
+  Failed,
   pending,
 }
 
 enum TransactionType {
-  personal,
-  business,
+  Personal,
+  Business,
 }
 
 class EnumValues<T> {

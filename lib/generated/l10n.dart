@@ -100,11 +100,61 @@ class S {
     );
   }
 
+  /// `Search`
+  String get search {
+    return Intl.message(
+      'Search',
+      name: 'search',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Transaction summary`
   String get transaction_summary {
     return Intl.message(
       'Transaction summary',
       name: 'transaction_summary',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `GHS`
+  String get gh_currency {
+    return Intl.message(
+      'GHS',
+      name: 'gh_currency',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Personal`
+  String get personal {
+    return Intl.message(
+      'Personal',
+      name: 'personal',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Cool your heart wai`
+  String get cool_your_hear {
+    return Intl.message(
+      'Cool your heart wai',
+      name: 'cool_your_hear',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Send new`
+  String get send_new {
+    return Intl.message(
+      'Send new',
+      name: 'send_new',
       desc: '',
       args: [],
     );

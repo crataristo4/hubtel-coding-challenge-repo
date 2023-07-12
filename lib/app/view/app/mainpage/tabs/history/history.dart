@@ -4,6 +4,8 @@ import 'package:hubtel_coding_challenge_repo/app/view/app/mainpage/tabs/history/
 import 'package:hubtel_coding_challenge_repo/app/view/app/mainpage/tabs/history/pages/transaction.summary.page.dart';
 import 'package:hubtel_coding_challenge_repo/app/widgets/app.custom.scroll.view.dart';
 import 'package:hubtel_coding_challenge_repo/generated/l10n.dart';
+import 'package:hubtel_coding_challenge_repo/utils/constants/theme.colors.dart';
+import 'package:hubtel_coding_challenge_repo/utils/widget.extensions.dart';
 
 import '../../../../../../utils/constants/dimens.dart';
 import '../../../../../widgets/app.persistent.sliver.header.dart';
@@ -38,25 +40,37 @@ class _HistoryState extends State<History> with SingleTickerProviderStateMixin {
   Widget build(BuildContext context) {
     return AppCustomScrollView(
       hasScaffold: true,
-      hasDefaultAppBarWithBack: false,
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+      floatingAction: Container(
+        decoration: BoxDecoration(color: ThemeColor.kSendNewColor, borderRadius: BorderRadius.circular(sixDp)),
+        child: TextButton.icon(
+            onPressed: () {},
+            icon: const Icon(
+              Icons.add_circle,
+              color: Colors.white,
+            ),
+            label: Text(
+              S.current.send_new.toUpperCase(),
+              style: const TextStyle(color: Colors.white, fontWeight: FontWeight.w700),
+            )),
+      ),
+      physics: const NeverScrollableScrollPhysics(),
       slivers: [
-        AppSliverPersistentHeader(
-          min: sixtyDp,
-          max: sixtyDp,
-          child: AnimatedContainer(
-            margin: EdgeInsets.only(left: tenDp.w, right: tenDp.w, top: 0.h, bottom: 3.h),
+        const SliverPadding(padding: EdgeInsets.symmetric(vertical: twentyDp)),
+        /*  AppSliverAppBar(
+          forcedElevated: true,
+          title: AnimatedContainer(
+            // margin: EdgeInsets.only(left: 0.w, right: 0.w, top: 0.h),
             padding: const EdgeInsets.all(eightDp),
             height: sixtyDp,
             decoration: BoxDecoration(
-              color: Colors.white,
+              color: Colors.grey.withOpacity(0.1),
               borderRadius: BorderRadius.circular(eightDp),
             ),
             duration: const Duration(milliseconds: 500),
             curve: Curves.easeInBack,
             child: TabBar(
               controller: _tabController,
-              //isScrollable: true,
-              // give the indicator a decoration (color and border radius)
               indicator: BoxDecoration(
                 borderRadius: BorderRadius.circular(eightDp),
                 color: Colors.white,
@@ -70,17 +84,67 @@ class _HistoryState extends State<History> with SingleTickerProviderStateMixin {
                 ],
               ),
               labelColor: Colors.black,
-              labelStyle: TextStyle(fontSize: fourteenDp.sp, fontWeight: FontWeight.w400),
+              labelStyle: TextStyle(fontSize: twelveDp.sp, fontWeight: FontWeight.w600),
               unselectedLabelStyle: TextStyle(
-                fontSize: fourteenDp.sp,
+                fontSize: twelveDp.sp,
               ),
               unselectedLabelColor: Colors.grey,
               tabs: _tabs,
             ),
+          ).bottom(sixDp),
+        ),*/
+        AppSliverPersistentHeader(
+          min: seventyDp,
+          max: seventyDp,
+          child: Container(
+            margin: const EdgeInsets.only(top: tenDp, left: sixteenDp, right: sixteenDp),
+            child: AnimatedContainer(
+              // margin: EdgeInsets.only(left: 0.w, right: 0.w, top: 0.h),
+              padding: const EdgeInsets.all(eightDp),
+              height: seventyDp,
+              decoration: BoxDecoration(
+                color: Colors.grey.withOpacity(0.1),
+                borderRadius: BorderRadius.circular(eightDp),
+              ),
+              duration: const Duration(milliseconds: 500),
+              curve: Curves.easeInBack,
+              child: TabBar(
+                controller: _tabController,
+                indicator: BoxDecoration(
+                  borderRadius: BorderRadius.circular(eightDp),
+                  color: Colors.white,
+                  boxShadow: const [
+                    BoxShadow(
+                      color: Colors.white,
+                      spreadRadius: 0,
+                      offset: Offset(0, 0),
+                      blurRadius: 0,
+                    ),
+                  ],
+                ),
+                labelColor: Colors.black,
+                labelStyle: TextStyle(fontSize: twelveDp.sp, fontWeight: FontWeight.w600),
+                unselectedLabelStyle: TextStyle(
+                  fontSize: twelveDp.sp,
+                ),
+                unselectedLabelColor: Colors.grey,
+                tabs: _tabs,
+              ),
+            ).bottom(sixDp),
           ),
         ),
         SliverFillRemaining(
-          child: Container(),
+          child: Column(
+            children: [
+              const Divider(),
+              Expanded(
+                child: TabBarView(
+                  controller: _tabController,
+                  children: _children,
+                ),
+              ),
+            ],
+          ),
         )
       ],
     );

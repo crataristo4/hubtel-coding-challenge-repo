@@ -10,6 +10,8 @@ class TransactionSummaryPage extends StatefulWidget {
 class _TransactionSummaryPageState extends State<TransactionSummaryPage> {
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return Scaffold(
+      body: Container(),
+    );
   }
 }

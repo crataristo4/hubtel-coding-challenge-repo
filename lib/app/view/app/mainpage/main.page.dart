@@ -9,6 +9,7 @@ import 'package:hubtel_coding_challenge_repo/app/widgets/app.custom.scroll.view.
 import 'package:hubtel_coding_challenge_repo/generated/assets.gen.dart';
 import 'package:hubtel_coding_challenge_repo/generated/l10n.dart';
 import 'package:hubtel_coding_challenge_repo/utils/constants/dimens.dart';
+import 'package:hubtel_coding_challenge_repo/utils/constants/theme.colors.dart';
 import 'package:hubtel_coding_challenge_repo/utils/widget.extensions.dart';
 
 class MainPage extends StatefulWidget {
@@ -21,18 +22,18 @@ class MainPage extends StatefulWidget {
 
 class _MainPageState extends State<MainPage> {
   final List<Map<String, dynamic>> _navItems = [
-    {"label": S.current.home, "icon": Assets.svg.home.path},
-    {"label": S.current.send, "icon": Assets.svg.send.path},
-    {"label": S.current.history, "icon": Assets.svg.history.path},
-    {"label": S.current.scheduled, "icon": Assets.svg.schedule.path},
+    {"label": '', "icon": Assets.images.home.path},
+    {"label": S.current.send, "icon": Assets.images.send.path},
+    {"label": S.current.history, "icon": Assets.images.history.path},
+    {"label": S.current.scheduled, "icon": Assets.images.schedule.path},
   ];
 
   int _selectedIndex = 0;
   String? title = '';
 
   ///Bottom navigation screens
-  final List<Widget> _bottomNavScreens = <Widget>[
-    const Home(),
+  final List<Widget> _bottomNavScreens = const <Widget>[
+    Home(),
     Send(),
     History(),
     Schedule(),
@@ -42,9 +43,14 @@ class _MainPageState extends State<MainPage> {
   Widget build(BuildContext context) {
     return AppCustomScrollView(
       hasScaffold: true,
+      physics: const NeverScrollableScrollPhysics(),
+      slivers: [
+        SliverFillRemaining(
+          child: _bottomNavScreens.elementAt(_selectedIndex),
+        )
+      ],
       bottomNavigation: AnimatedBottomNavigationBar.builder(
-        //height: 70,
-        //gapWidth: 90, //default 72
+        height: eightyDp,
         itemCount: _navItems.length,
         tabBuilder: (int index, bool isActive) {
           final color = isActive ? Colors.black : Colors.grey;
@@ -52,10 +58,34 @@ class _MainPageState extends State<MainPage> {
             mainAxisSize: MainAxisSize.min,
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              _navItems[index]['icon'].toString().asSvg(
-                    size: isActive ? twentyFourDp : twentyDp,
-                    color: color,
-                  ),
+              if (index == 0) ...{
+                Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Container(
+                      width: fortyDp,
+                      height: fortyDp,
+                      padding: const EdgeInsets.all(tenDp),
+                      margin: const EdgeInsets.only(top: tenDp),
+                      decoration: const BoxDecoration(shape: BoxShape.circle, color: ThemeColor.kLightGreen),
+                      child: _navItems[0]['icon'].toString().asAssetImage(
+                            size: isActive ? twentyFourDp : twentyDp,
+                          ),
+                    ),
+                    tenDp.horizontalSpace,
+                    Container(
+                      height: fortyDp,
+                      width: 1,
+                      color: ThemeColor.kGreyLight,
+                    )
+                  ],
+                )
+              } else ...{
+                _navItems[index]['icon'].toString().asAssetImage(
+                      size: isActive ? twentyFourDp : twentyDp,
+                    ),
+              },
               fourDp.verticalSpace,
               Text(
                 _navItems[index]['label'],

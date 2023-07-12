@@ -11,31 +11,59 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter/services.dart';
 
+class $AssetsImagesGen {
+  const $AssetsImagesGen();
+
+  /// File path: assets/images/absa.png
+  AssetGenImage get absa => const AssetGenImage('assets/images/absa.png');
+
+  /// File path: assets/images/history.png
+  AssetGenImage get history => const AssetGenImage('assets/images/history.png');
+
+  /// File path: assets/images/home.png
+  AssetGenImage get home => const AssetGenImage('assets/images/home.png');
+
+  /// File path: assets/images/mtn.png
+  AssetGenImage get mtn => const AssetGenImage('assets/images/mtn.png');
+
+  /// File path: assets/images/person.png
+  AssetGenImage get person => const AssetGenImage('assets/images/person.png');
+
+  /// File path: assets/images/schedule.png
+  AssetGenImage get schedule =>
+      const AssetGenImage('assets/images/schedule.png');
+
+  /// File path: assets/images/send.png
+  AssetGenImage get send => const AssetGenImage('assets/images/send.png');
+
+  /// List of all assets
+  List<AssetGenImage> get values =>
+      [absa, history, home, mtn, person, schedule, send];
+}
+
 class $AssetsSvgGen {
   const $AssetsSvgGen();
+
+  /// File path: assets/svg/failed.svg
+  SvgGenImage get failed => const SvgGenImage('assets/svg/failed.svg');
 
   /// File path: assets/svg/filter.svg
   SvgGenImage get filter => const SvgGenImage('assets/svg/filter.svg');
 
-  /// File path: assets/svg/history.svg
-  SvgGenImage get history => const SvgGenImage('assets/svg/history.svg');
+  /// File path: assets/svg/search.svg
+  SvgGenImage get search => const SvgGenImage('assets/svg/search.svg');
 
-  /// File path: assets/svg/home.svg
-  SvgGenImage get home => const SvgGenImage('assets/svg/home.svg');
-
-  /// File path: assets/svg/schedule.svg
-  SvgGenImage get schedule => const SvgGenImage('assets/svg/schedule.svg');
-
-  /// File path: assets/svg/send.svg
-  SvgGenImage get send => const SvgGenImage('assets/svg/send.svg');
+  /// File path: assets/svg/success.svg
+  SvgGenImage get success => const SvgGenImage('assets/svg/success.svg');
 
   /// List of all assets
-  List<SvgGenImage> get values => [filter, history, home, schedule, send];
+  List<SvgGenImage> get values => [failed, filter, search, success];
 }
 
 class Assets {
   Assets._();
 
+  static const $AssetsImagesGen images = $AssetsImagesGen();
   static const $AssetsSvgGen svg = $AssetsSvgGen();
 }
 

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hubtel_coding_challenge_repo/utils/constants/dimens.dart';
+import 'package:hubtel_coding_challenge_repo/utils/constants/theme.colors.dart';
 
 class BorderedContainer extends StatelessWidget {
   const BorderedContainer({
@@ -45,7 +46,7 @@ class BorderedContainer extends StatelessWidget {
         decoration: BoxDecoration(
           color: containerColor,
           border: Border.all(
-            color: borderColor ?? Colors.grey,
+            color: borderColor ?? ThemeColor.kGreyLight,
             width: borderWidth ?? 1.0,
           ),
           borderRadius: borderRadius ?? BorderRadius.circular(borderRadiusValue ?? tenDp),

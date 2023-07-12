@@ -4,6 +4,10 @@
   "send" : "Send",
   "history" : "History",
   "scheduled" : "Scheduled",
-  "history" : "History",
-  "transaction_summary" : "Transaction summary"
+  "search" : "Search",
+  "transaction_summary" : "Transaction summary",
+  "gh_currency" : "GHS",
+  "personal" : "Personal",
+  "cool_your_hear" : "Cool your heart wai",
+  "send_new" : "Send new"
 }

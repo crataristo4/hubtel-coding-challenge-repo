@@ -10,6 +10,8 @@ class Send extends StatefulWidget {
 class _SendState extends State<Send> {
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return Scaffold(
+      body: Container(),
+    );
   }
 }

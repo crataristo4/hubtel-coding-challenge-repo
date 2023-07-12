@@ -12,6 +12,8 @@
 import 'package:get_it/get_it.dart' as _i1;
 import 'package:injectable/injectable.dart' as _i2;
 
+import '../view.model/history.vm.dart' as _i3;
+
 extension GetItInjectableX on _i1.GetIt {
   // initializes the registration of main-scope dependencies inside of GetIt
   _i1.GetIt init({
@@ -23,6 +25,7 @@ extension GetItInjectableX on _i1.GetIt {
       environment,
       environmentFilter,
     );
+    gh.lazySingleton<_i3.HistoryViewModel>(() => _i3.HistoryViewModel());
     return this;
   }
 }

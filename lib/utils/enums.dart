@@ -13,6 +13,8 @@ enum TransactionType {
   Business,
 }
 
+enum ModelState { initial, loading, success, error }
+
 class EnumValues<T> {
   Map<String, T>? map;
   Map<T, String>? reverseMap;

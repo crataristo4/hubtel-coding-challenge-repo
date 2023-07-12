@@ -33,12 +33,16 @@ class $AssetsImagesGen {
   AssetGenImage get schedule =>
       const AssetGenImage('assets/images/schedule.png');
 
+  /// File path: assets/images/screen-shot.jpeg
+  AssetGenImage get screenShot =>
+      const AssetGenImage('assets/images/screen-shot.jpeg');
+
   /// File path: assets/images/send.png
   AssetGenImage get send => const AssetGenImage('assets/images/send.png');
 
   /// List of all assets
   List<AssetGenImage> get values =>
-      [absa, history, home, mtn, person, schedule, send];
+      [absa, history, home, mtn, person, schedule, screenShot, send];
 }
 
 class $AssetsSvgGen {

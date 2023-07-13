@@ -12,6 +12,11 @@
 
 #Provider to handle state management
 
+#Assets are generated using Flutter_gen and requires code generation 
+use this 
+flutter clean && flutter pub get && flutter packages pub run build_runner watch --delete-conflicting-outputs
+
+
 #NB iphone 5s device was used for testing
 
 # Features on Design

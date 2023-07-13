@@ -30,6 +30,10 @@ To install this on Android studio or vs code, type below in terminal.
 
 git clone https://github.com/crataristo4/hubtel-coding-challenge-repo.git
 
+<p align="middle">
+   <h3 >Screenshot OF DESIGN</h3>
+  <img src="https://github.com/crataristo4/hubtel-coding-challenge-repo/blob/main/screenshots/screen-shot.jpeg" height = "600" width="300"/>
+</p>
 
 <p align="middle">
    <h3 >GIF OF DESIGN</h3>
